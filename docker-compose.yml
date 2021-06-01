@@ -7,10 +7,11 @@ services:
      environment:
         - MYSQL_ROOT_PASSWORD="secret"
   web:
-    image: httpd
+    image: apache
+    build: ./webapp
     depends_on:
        - db
-    container_name: httpd_web
+    container_name: apache_web
     restart: always
     ports:
       - "8080:80"
