@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+     image: mysql
+     container_name: mysql_db
+     restart: always
+     environment:
+        - MYSQL_ROOT_PASSWORD="secret"
+  web:
+    image: httpd
+    depends_on:
+       - db
+    container_name: httpd_web
+    restart: always
+    ports:
+      - "8080:80"
