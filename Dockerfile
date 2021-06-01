@@ -1,5 +1,7 @@
-FROM ubuntu:trusty
+FROM tomcat:8.5.37-jre8
 LABEL maintainer="aprasannanaresh04579@gmail.com"
-RUN apt-get update && apt-get install apache2 -y
-CMD ["apachectl", "-D", "FOREGROUND"]
-EXPOSE 80
+RUN apt-get update
+COPY jenkins.war /usr/local/tomcat/webapps/
+WORKDIR /usr/local/tomcat/webapps/
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
