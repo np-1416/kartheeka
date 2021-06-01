@@ -1,6 +1,5 @@
-FROM ubuntu:14.04
+FROM ubuntu:trusty
 LABEL maintainer="aprasannanaresh04579@gmail.com"
 RUN apt-get update
-RUN apt-get install git -y
-ENTRYPOINT ["ping"]
-CMD ["ping", "google.com"]
+ENV name rudratechnologies
+ENTRYPOINT echo "welcome to $name"
